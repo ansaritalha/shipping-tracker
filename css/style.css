@@ -1,0 +1,224 @@
+/* Layout */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f7fa;
+  color: #2d2d2d;
+}
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 30px 0px 30px;
+}
+
+/* Card */
+.tracking-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  padding: 40px 30px;
+  max-width: 1000px;
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.greeting {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.details {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.loader {
+  text-align: center;
+  padding: 60px 0;
+  font-size: 18px;
+  color: #777;
+}
+
+/* ===================== Vertical Step Tracker ===================== */
+
+.status-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.status-bar {
+  list-style: none;
+  padding: 0;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.status-bar li {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 700px;
+}
+
+.circle-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50px;
+  position: relative; /* Required for absolute positioning */
+}
+
+
+.circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #ccc;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.vline {
+  position: absolute;
+  top: 44px; /* below the 44px circle */
+  left: 49%;
+  transform: translateX(-50%);
+  width: 5px;
+  background: #ddd; /* default (upcoming steps) */
+  z-index: 0;
+}
+
+
+.status-bar li.done .circle {
+  background-color: #28c76f;
+}
+.status-bar li.done .vline {
+  background-color: #28c76f;
+}
+.status-bar li.active .circle {
+  background-color: #1ed477;
+  animation: pulse 1.5s infinite;
+}
+
+.status-bar li:last-child .vline {
+  display: none;
+}
+
+.content {
+  padding-left: 16px;
+  flex: 1;
+  text-align: left;
+}
+
+.label {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #111;
+}
+
+.description {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+
+.tracking-id-note {
+  background: #f0fff3;
+  border: 2px solid #28c76f;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #246c2a;
+  margin-top: 6px;
+}
+
+/* Pulse Animation for Active Step */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(30, 212, 119, 0.4);
+  }
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 10px rgba(30, 212, 119, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(30, 212, 119, 0);
+  }
+}
+
+/* ===================== Responsive ===================== */
+
+@media (max-width: 768px) {
+  .tracking-card {
+    padding: 30px 20px;
+  }
+
+  .status-bar li {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .circle {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .vline {
+    width: 4px;
+  }
+
+  .label {
+    font-size: 14px;
+  }
+
+  .description {
+    font-size: 13px;
+  }
+}
+@media (max-width: 768px) {
+  .tracking-card {
+    width: 80%;
+  }
+}
+@media (max-width: 480px) {
+  .tracking-card {
+    width: 90%;
+  }
+}
+@media (max-width: 768px) {
+ .vline {
+   top: 40px;
+  }
+}
+
+.card-header {
+  display: flex;
+  justify-content: center; /* ✅ Center horizontally */
+  align-items: center;
+  margin-bottom: 20px;
+}
+.card-logo {
+  max-width: 150px;
+  height: auto;
+  display: block;
+}
